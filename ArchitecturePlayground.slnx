@@ -2,6 +2,36 @@
   <Folder Name="/src/" />
   <Folder Name="/src/CleanArchitecture/" />
   <Folder Name="/src/Docs/" />
+  <Folder Name="/src/ServiceOrientedArchitecture/" />
+  <Folder Name="/src/ServiceOrientedArchitecture/BuildingBlocks/">
+    <Project Path="src/ServiceOrientedArchitecture/BuildingBlocks/Soa.BuildingBlocks/Soa.BuildingBlocks.csproj" />
+  </Folder>
+  <Folder Name="/src/ServiceOrientedArchitecture/Gateway/">
+    <Project Path="src/ServiceOrientedArchitecture/Gateway/Soa.ApiGateway/Soa.ApiGateway.csproj" />
+  </Folder>
+  <Folder Name="/src/ServiceOrientedArchitecture/Services/" />
+  <Folder Name="/src/ServiceOrientedArchitecture/Services/Orders/">
+    <Project Path="src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Api/Soa.Orders.Api.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Application/Soa.Orders.Application.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Contracts/Soa.Orders.Contracts.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Domain/Soa.Orders.Domain.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Infrastructure/Soa.Orders.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/ServiceOrientedArchitecture/Services/Products/">
+    <Project Path="src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Api/Soa.Products.Api.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Application/Soa.Products.Application.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Contracts/Soa.Products.Contracts.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Domain/Soa.Products.Domain.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Infrastructure/Soa.Products.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/ServiceOrientedArchitecture/Services/Users/">
+    <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Api/Soa.Users.Api.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Application/Soa.Users.Application.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Contracts/Soa.Users.Contracts.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Domain/Soa.Users.Domain.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Infrastructure/Soa.Users.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/ServiceOrientedArchitecture/tests/" />
   <Folder Name="/src/ModularMonolith/" />
   <Folder Name="/src/ModularMonolith/src/" />
   <Folder Name="/src/ModularMonolith/src/BuildingBlocks/">
