@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Soa.Orders.Application/Soa.Orders.Application.csproj" />
+    <ProjectReference Include="../Soa.Orders.Domain/Soa.Orders.Domain.csproj" />
+  </ItemGroup>
+</Project>
