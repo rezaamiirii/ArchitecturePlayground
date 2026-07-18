@@ -59,4 +59,83 @@
   <Folder Name="/src/ModularMonolith/tests/Integration/">
     <Project Path="ModularMonolith.Reference/tests/ModularMonolith.IntegrationTests/ModularMonolith.IntegrationTests.csproj" />
   </Folder>
+
+  <Folder Name="/src/MicroservicesArchitecture/" />
+  <Folder Name="/src/MicroservicesArchitecture/Gateway/">
+    <Project Path="src/MicroservicesArchitecture/Gateway/Microservices.ApiGateway/Microservices.ApiGateway.csproj" />
+  </Folder>
+  <Folder Name="/src/MicroservicesArchitecture/Services/" />
+  <Folder Name="/src/MicroservicesArchitecture/Services/Identity/">
+    <Project Path="src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Api/Microservices.Identity.Api.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Application/Microservices.Identity.Application.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Contracts/Microservices.Identity.Contracts.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Domain/Microservices.Identity.Domain.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Infrastructure/Microservices.Identity.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/MicroservicesArchitecture/Services/Customers/">
+    <Project Path="src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Api/Microservices.Customers.Api.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Application/Microservices.Customers.Application.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Contracts/Microservices.Customers.Contracts.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Domain/Microservices.Customers.Domain.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Infrastructure/Microservices.Customers.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/MicroservicesArchitecture/Services/Catalog/">
+    <Project Path="src/MicroservicesArchitecture/Services/Catalog/Microservices.Catalog.Api/Microservices.Catalog.Api.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Catalog/Microservices.Catalog.Application/Microservices.Catalog.Application.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Catalog/Microservices.Catalog.Contracts/Microservices.Catalog.Contracts.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Catalog/Microservices.Catalog.Domain/Microservices.Catalog.Domain.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Catalog/Microservices.Catalog.Infrastructure/Microservices.Catalog.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/MicroservicesArchitecture/Services/Pricing/">
+    <Project Path="src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Api/Microservices.Pricing.Api.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Application/Microservices.Pricing.Application.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Contracts/Microservices.Pricing.Contracts.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Domain/Microservices.Pricing.Domain.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Infrastructure/Microservices.Pricing.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/MicroservicesArchitecture/Services/Inventory/">
+    <Project Path="src/MicroservicesArchitecture/Services/Inventory/Microservices.Inventory.Api/Microservices.Inventory.Api.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Inventory/Microservices.Inventory.Application/Microservices.Inventory.Application.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Inventory/Microservices.Inventory.Contracts/Microservices.Inventory.Contracts.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Inventory/Microservices.Inventory.Domain/Microservices.Inventory.Domain.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Inventory/Microservices.Inventory.Infrastructure/Microservices.Inventory.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/MicroservicesArchitecture/Services/Ordering/">
+    <Project Path="src/MicroservicesArchitecture/Services/Ordering/Microservices.Ordering.Api/Microservices.Ordering.Api.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Ordering/Microservices.Ordering.Application/Microservices.Ordering.Application.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Ordering/Microservices.Ordering.Contracts/Microservices.Ordering.Contracts.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Ordering/Microservices.Ordering.Domain/Microservices.Ordering.Domain.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Ordering/Microservices.Ordering.Infrastructure/Microservices.Ordering.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/MicroservicesArchitecture/Services/Payments/">
+    <Project Path="src/MicroservicesArchitecture/Services/Payments/Microservices.Payments.Api/Microservices.Payments.Api.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Payments/Microservices.Payments.Application/Microservices.Payments.Application.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Payments/Microservices.Payments.Contracts/Microservices.Payments.Contracts.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Payments/Microservices.Payments.Domain/Microservices.Payments.Domain.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Payments/Microservices.Payments.Infrastructure/Microservices.Payments.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/MicroservicesArchitecture/Services/Notifications/">
+    <Project Path="src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Worker/Microservices.Notifications.Worker.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Application/Microservices.Notifications.Application.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Contracts/Microservices.Notifications.Contracts.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Domain/Microservices.Notifications.Domain.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Infrastructure/Microservices.Notifications.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/MicroservicesArchitecture/Shared/">
+    <Project Path="src/MicroservicesArchitecture/Shared/Microservices.BuildingBlocks/Microservices.BuildingBlocks.csproj" />
+  </Folder>
+  <Folder Name="/src/MicroservicesArchitecture/Deployments/" />
+  <Folder Name="/src/MicroservicesArchitecture/tests/" />
+  <Folder Name="/src/MicroservicesArchitecture/tests/Architecture/">
+    <Project Path="src/MicroservicesArchitecture/tests/Architecture/Microservices.ArchitectureTests/Microservices.ArchitectureTests.csproj" />
+  </Folder>
+  <Folder Name="/src/MicroservicesArchitecture/tests/Identity/" />
+  <Folder Name="/src/MicroservicesArchitecture/tests/Customers/" />
+  <Folder Name="/src/MicroservicesArchitecture/tests/Catalog/" />
+  <Folder Name="/src/MicroservicesArchitecture/tests/Pricing/" />
+  <Folder Name="/src/MicroservicesArchitecture/tests/Inventory/" />
+  <Folder Name="/src/MicroservicesArchitecture/tests/Ordering/" />
+  <Folder Name="/src/MicroservicesArchitecture/tests/Payments/" />
+  <Folder Name="/src/MicroservicesArchitecture/tests/Notifications/" />
+  <Folder Name="/src/MicroservicesArchitecture/tests/EndToEnd/" />
 </Solution>

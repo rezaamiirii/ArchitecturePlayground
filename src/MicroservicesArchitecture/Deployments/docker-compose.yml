@@ -1,0 +1,63 @@
+# Microservices Architecture skeleton only.
+# No databases, brokers, service discovery, or production infrastructure are configured yet.
+services:
+  api-gateway:
+    build:
+      context: ..
+      dockerfile: Gateway/Microservices.ApiGateway/Dockerfile
+    ports:
+      - "8080:8080"
+
+  identity-service:
+    build:
+      context: ..
+      dockerfile: Services/Identity/Microservices.Identity.Api/Dockerfile
+    ports:
+      - "8081:8080"
+
+  customers-service:
+    build:
+      context: ..
+      dockerfile: Services/Customers/Microservices.Customers.Api/Dockerfile
+    ports:
+      - "8082:8080"
+
+  catalog-service:
+    build:
+      context: ..
+      dockerfile: Services/Catalog/Microservices.Catalog.Api/Dockerfile
+    ports:
+      - "8083:8080"
+
+  pricing-service:
+    build:
+      context: ..
+      dockerfile: Services/Pricing/Microservices.Pricing.Api/Dockerfile
+    ports:
+      - "8084:8080"
+
+  inventory-service:
+    build:
+      context: ..
+      dockerfile: Services/Inventory/Microservices.Inventory.Api/Dockerfile
+    ports:
+      - "8085:8080"
+
+  ordering-service:
+    build:
+      context: ..
+      dockerfile: Services/Ordering/Microservices.Ordering.Api/Dockerfile
+    ports:
+      - "8086:8080"
+
+  payments-service:
+    build:
+      context: ..
+      dockerfile: Services/Payments/Microservices.Payments.Api/Dockerfile
+    ports:
+      - "8087:8080"
+
+  notifications-service:
+    build:
+      context: ..
+      dockerfile: Services/Notifications/Microservices.Notifications.Worker/Dockerfile
