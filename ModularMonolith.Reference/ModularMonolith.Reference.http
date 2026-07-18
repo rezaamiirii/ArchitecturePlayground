@@ -1,0 +1,6 @@
+@ModularMonolith.Reference_HostAddress = http://localhost:5146
+
+GET {{ModularMonolith.Reference_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

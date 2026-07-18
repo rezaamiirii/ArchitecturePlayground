@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/CleanArchitecture/" />
+  <Folder Name="/src/ModularMonolith/">
+    <Project Path="ModularMonolith.Reference/ModularMonolith.Reference.csproj" />
+  </Folder>
+</Solution>
