@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Monolith.Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:55218;http://localhost:55219"
+    }
+  }
+}

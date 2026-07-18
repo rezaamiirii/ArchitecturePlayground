@@ -82,6 +82,12 @@
   <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/tests/Ordering/" />
   <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/tests/Payments/" />
   <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/tests/Pricing/" />
+  <Folder Name="/src/SystemArchitectures/Monolith/">
+    <Project Path="src/SystemArchitectures/Monolith/Monolith.Api/Monolith.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/SystemArchitectures/Monolith/tests/">
+    <Project Path="src/SystemArchitectures/Monolith/tests/Monolith.Api.Tests/Monolith.Api.Tests.csproj" />
+  </Folder>
   <Folder Name="/src/SystemArchitectures/ModularMonolith/" />
   <Folder Name="/src/SystemArchitectures/ModularMonolith/src/" />
   <Folder Name="/src/SystemArchitectures/ModularMonolith/src/BuildingBlocks/">
