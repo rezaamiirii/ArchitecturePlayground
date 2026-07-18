@@ -1,141 +1,142 @@
 <Solution>
   <Folder Name="/src/" />
-  <Folder Name="/src/CleanArchitecture/" />
+  <Folder Name="/src/ApplicationArchitectures/" />
+  <Folder Name="/src/ApplicationArchitectures/CleanArchitecture/" />
   <Folder Name="/src/Docs/" />
-  <Folder Name="/src/ServiceOrientedArchitecture/" />
-  <Folder Name="/src/ServiceOrientedArchitecture/BuildingBlocks/">
-    <Project Path="src/ServiceOrientedArchitecture/BuildingBlocks/Soa.BuildingBlocks/Soa.BuildingBlocks.csproj" />
-  </Folder>
-  <Folder Name="/src/ServiceOrientedArchitecture/Gateway/">
-    <Project Path="src/ServiceOrientedArchitecture/Gateway/Soa.ApiGateway/Soa.ApiGateway.csproj" />
-  </Folder>
-  <Folder Name="/src/ServiceOrientedArchitecture/Services/" />
-  <Folder Name="/src/ServiceOrientedArchitecture/Services/Orders/">
-    <Project Path="src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Api/Soa.Orders.Api.csproj" />
-    <Project Path="src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Application/Soa.Orders.Application.csproj" />
-    <Project Path="src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Contracts/Soa.Orders.Contracts.csproj" />
-    <Project Path="src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Domain/Soa.Orders.Domain.csproj" />
-    <Project Path="src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Infrastructure/Soa.Orders.Infrastructure.csproj" />
-  </Folder>
-  <Folder Name="/src/ServiceOrientedArchitecture/Services/Products/">
-    <Project Path="src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Api/Soa.Products.Api.csproj" />
-    <Project Path="src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Application/Soa.Products.Application.csproj" />
-    <Project Path="src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Contracts/Soa.Products.Contracts.csproj" />
-    <Project Path="src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Domain/Soa.Products.Domain.csproj" />
-    <Project Path="src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Infrastructure/Soa.Products.Infrastructure.csproj" />
-  </Folder>
-  <Folder Name="/src/ServiceOrientedArchitecture/Services/Users/">
-    <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Api/Soa.Users.Api.csproj" />
-    <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Application/Soa.Users.Application.csproj" />
-    <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Contracts/Soa.Users.Contracts.csproj" />
-    <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Domain/Soa.Users.Domain.csproj" />
-    <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Infrastructure/Soa.Users.Infrastructure.csproj" />
-  </Folder>
-  <Folder Name="/src/ServiceOrientedArchitecture/tests/" />
-  <Folder Name="/src/ModularMonolith/" />
-  <Folder Name="/src/ModularMonolith/src/" />
-  <Folder Name="/src/ModularMonolith/src/BuildingBlocks/">
-    <Project Path="ModularMonolith.Reference/BuildingBlocks/ModularMonolith.BuildingBlocks/ModularMonolith.BuildingBlocks.csproj" />
-  </Folder>
-  <Folder Name="/src/ModularMonolith/src/Host/">
-    <Project Path="ModularMonolith.Reference/ModularMonolith.Reference.Api/ModularMonolith.Reference.Api.csproj" />
-  </Folder>
-  <Folder Name="/src/ModularMonolith/src/Modules/" />
-  <Folder Name="/src/ModularMonolith/src/Modules/Orders/">
-    <Project Path="ModularMonolith.Reference/Modules/Orders/ModularMonolith.Modules.Orders/ModularMonolith.Modules.Orders.csproj" />
-  </Folder>
-  <Folder Name="/src/ModularMonolith/src/Modules/Products/">
-    <Project Path="ModularMonolith.Reference/Modules/Products/ModularMonolith.Modules.Products.Contracts/ModularMonolith.Modules.Products.Contracts.csproj" />
-    <Project Path="ModularMonolith.Reference/Modules/Products/ModularMonolith.Modules.Products/ModularMonolith.Modules.Products.csproj" />
-  </Folder>
-  <Folder Name="/src/ModularMonolith/src/Modules/Users/">
-    <Project Path="ModularMonolith.Reference/Modules/Users/ModularMonolith.Modules.Users.Contracts/ModularMonolith.Modules.Users.Contracts.csproj" />
-    <Project Path="ModularMonolith.Reference/Modules/Users/ModularMonolith.Modules.Users/ModularMonolith.Modules.Users.csproj" />
-  </Folder>
-  <Folder Name="/src/ModularMonolith/tests/" />
-  <Folder Name="/src/ModularMonolith/tests/Architecture/">
-    <Project Path="ModularMonolith.Reference/tests/ModularMonolith.ArchitectureTests/ModularMonolith.ArchitectureTests.csproj" />
-  </Folder>
-  <Folder Name="/src/ModularMonolith/tests/Integration/">
-    <Project Path="ModularMonolith.Reference/tests/ModularMonolith.IntegrationTests/ModularMonolith.IntegrationTests.csproj" />
-  </Folder>
-
-  <Folder Name="/src/MicroservicesArchitecture/" />
-  <Folder Name="/src/MicroservicesArchitecture/Gateway/">
+  <Folder Name="/src/SystemArchitectures/" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/Deployments/" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/Gateway/">
     <Project Path="src/MicroservicesArchitecture/Gateway/Microservices.ApiGateway/Microservices.ApiGateway.csproj" />
   </Folder>
-  <Folder Name="/src/MicroservicesArchitecture/Services/" />
-  <Folder Name="/src/MicroservicesArchitecture/Services/Identity/">
-    <Project Path="src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Api/Microservices.Identity.Api.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Application/Microservices.Identity.Application.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Contracts/Microservices.Identity.Contracts.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Domain/Microservices.Identity.Domain.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Infrastructure/Microservices.Identity.Infrastructure.csproj" />
-  </Folder>
-  <Folder Name="/src/MicroservicesArchitecture/Services/Customers/">
-    <Project Path="src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Api/Microservices.Customers.Api.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Application/Microservices.Customers.Application.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Contracts/Microservices.Customers.Contracts.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Domain/Microservices.Customers.Domain.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Infrastructure/Microservices.Customers.Infrastructure.csproj" />
-  </Folder>
-  <Folder Name="/src/MicroservicesArchitecture/Services/Catalog/">
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/Services/" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/Services/Catalog/">
     <Project Path="src/MicroservicesArchitecture/Services/Catalog/Microservices.Catalog.Api/Microservices.Catalog.Api.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Catalog/Microservices.Catalog.Application/Microservices.Catalog.Application.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Catalog/Microservices.Catalog.Contracts/Microservices.Catalog.Contracts.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Catalog/Microservices.Catalog.Domain/Microservices.Catalog.Domain.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Catalog/Microservices.Catalog.Infrastructure/Microservices.Catalog.Infrastructure.csproj" />
   </Folder>
-  <Folder Name="/src/MicroservicesArchitecture/Services/Pricing/">
-    <Project Path="src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Api/Microservices.Pricing.Api.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Application/Microservices.Pricing.Application.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Contracts/Microservices.Pricing.Contracts.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Domain/Microservices.Pricing.Domain.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Infrastructure/Microservices.Pricing.Infrastructure.csproj" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/Services/Customers/">
+    <Project Path="src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Api/Microservices.Customers.Api.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Application/Microservices.Customers.Application.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Contracts/Microservices.Customers.Contracts.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Domain/Microservices.Customers.Domain.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Infrastructure/Microservices.Customers.Infrastructure.csproj" />
   </Folder>
-  <Folder Name="/src/MicroservicesArchitecture/Services/Inventory/">
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/Services/Identity/">
+    <Project Path="src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Api/Microservices.Identity.Api.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Application/Microservices.Identity.Application.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Contracts/Microservices.Identity.Contracts.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Domain/Microservices.Identity.Domain.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Infrastructure/Microservices.Identity.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/Services/Inventory/">
     <Project Path="src/MicroservicesArchitecture/Services/Inventory/Microservices.Inventory.Api/Microservices.Inventory.Api.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Inventory/Microservices.Inventory.Application/Microservices.Inventory.Application.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Inventory/Microservices.Inventory.Contracts/Microservices.Inventory.Contracts.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Inventory/Microservices.Inventory.Domain/Microservices.Inventory.Domain.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Inventory/Microservices.Inventory.Infrastructure/Microservices.Inventory.Infrastructure.csproj" />
   </Folder>
-  <Folder Name="/src/MicroservicesArchitecture/Services/Ordering/">
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/Services/Notifications/">
+    <Project Path="src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Application/Microservices.Notifications.Application.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Contracts/Microservices.Notifications.Contracts.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Domain/Microservices.Notifications.Domain.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Infrastructure/Microservices.Notifications.Infrastructure.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Worker/Microservices.Notifications.Worker.csproj" />
+  </Folder>
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/Services/Ordering/">
     <Project Path="src/MicroservicesArchitecture/Services/Ordering/Microservices.Ordering.Api/Microservices.Ordering.Api.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Ordering/Microservices.Ordering.Application/Microservices.Ordering.Application.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Ordering/Microservices.Ordering.Contracts/Microservices.Ordering.Contracts.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Ordering/Microservices.Ordering.Domain/Microservices.Ordering.Domain.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Ordering/Microservices.Ordering.Infrastructure/Microservices.Ordering.Infrastructure.csproj" />
   </Folder>
-  <Folder Name="/src/MicroservicesArchitecture/Services/Payments/">
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/Services/Payments/">
     <Project Path="src/MicroservicesArchitecture/Services/Payments/Microservices.Payments.Api/Microservices.Payments.Api.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Payments/Microservices.Payments.Application/Microservices.Payments.Application.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Payments/Microservices.Payments.Contracts/Microservices.Payments.Contracts.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Payments/Microservices.Payments.Domain/Microservices.Payments.Domain.csproj" />
     <Project Path="src/MicroservicesArchitecture/Services/Payments/Microservices.Payments.Infrastructure/Microservices.Payments.Infrastructure.csproj" />
   </Folder>
-  <Folder Name="/src/MicroservicesArchitecture/Services/Notifications/">
-    <Project Path="src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Worker/Microservices.Notifications.Worker.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Application/Microservices.Notifications.Application.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Contracts/Microservices.Notifications.Contracts.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Domain/Microservices.Notifications.Domain.csproj" />
-    <Project Path="src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Infrastructure/Microservices.Notifications.Infrastructure.csproj" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/Services/Pricing/">
+    <Project Path="src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Api/Microservices.Pricing.Api.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Application/Microservices.Pricing.Application.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Contracts/Microservices.Pricing.Contracts.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Domain/Microservices.Pricing.Domain.csproj" />
+    <Project Path="src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Infrastructure/Microservices.Pricing.Infrastructure.csproj" />
   </Folder>
-  <Folder Name="/src/MicroservicesArchitecture/Shared/">
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/Shared/">
     <Project Path="src/MicroservicesArchitecture/Shared/Microservices.BuildingBlocks/Microservices.BuildingBlocks.csproj" />
   </Folder>
-  <Folder Name="/src/MicroservicesArchitecture/Deployments/" />
-  <Folder Name="/src/MicroservicesArchitecture/tests/" />
-  <Folder Name="/src/MicroservicesArchitecture/tests/Architecture/">
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/tests/" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/tests/Architecture/">
     <Project Path="src/MicroservicesArchitecture/tests/Architecture/Microservices.ArchitectureTests/Microservices.ArchitectureTests.csproj" />
   </Folder>
-  <Folder Name="/src/MicroservicesArchitecture/tests/Identity/" />
-  <Folder Name="/src/MicroservicesArchitecture/tests/Customers/" />
-  <Folder Name="/src/MicroservicesArchitecture/tests/Catalog/" />
-  <Folder Name="/src/MicroservicesArchitecture/tests/Pricing/" />
-  <Folder Name="/src/MicroservicesArchitecture/tests/Inventory/" />
-  <Folder Name="/src/MicroservicesArchitecture/tests/Ordering/" />
-  <Folder Name="/src/MicroservicesArchitecture/tests/Payments/" />
-  <Folder Name="/src/MicroservicesArchitecture/tests/Notifications/" />
-  <Folder Name="/src/MicroservicesArchitecture/tests/EndToEnd/" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/tests/Catalog/" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/tests/Customers/" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/tests/EndToEnd/" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/tests/Identity/" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/tests/Inventory/" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/tests/Notifications/" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/tests/Ordering/" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/tests/Payments/" />
+  <Folder Name="/src/SystemArchitectures/MicroservicesArchitecture/tests/Pricing/" />
+  <Folder Name="/src/SystemArchitectures/ModularMonolith/" />
+  <Folder Name="/src/SystemArchitectures/ModularMonolith/src/" />
+  <Folder Name="/src/SystemArchitectures/ModularMonolith/src/BuildingBlocks/">
+    <Project Path="ModularMonolith.Reference/BuildingBlocks/ModularMonolith.BuildingBlocks/ModularMonolith.BuildingBlocks.csproj" />
+  </Folder>
+  <Folder Name="/src/SystemArchitectures/ModularMonolith/src/Host/">
+    <Project Path="ModularMonolith.Reference/ModularMonolith.Reference.Api/ModularMonolith.Reference.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/SystemArchitectures/ModularMonolith/src/Modules/" />
+  <Folder Name="/src/SystemArchitectures/ModularMonolith/src/Modules/Orders/">
+    <Project Path="ModularMonolith.Reference/Modules/Orders/ModularMonolith.Modules.Orders/ModularMonolith.Modules.Orders.csproj" />
+  </Folder>
+  <Folder Name="/src/SystemArchitectures/ModularMonolith/src/Modules/Products/">
+    <Project Path="ModularMonolith.Reference/Modules/Products/ModularMonolith.Modules.Products.Contracts/ModularMonolith.Modules.Products.Contracts.csproj" />
+    <Project Path="ModularMonolith.Reference/Modules/Products/ModularMonolith.Modules.Products/ModularMonolith.Modules.Products.csproj" />
+  </Folder>
+  <Folder Name="/src/SystemArchitectures/ModularMonolith/src/Modules/Users/">
+    <Project Path="ModularMonolith.Reference/Modules/Users/ModularMonolith.Modules.Users.Contracts/ModularMonolith.Modules.Users.Contracts.csproj" />
+    <Project Path="ModularMonolith.Reference/Modules/Users/ModularMonolith.Modules.Users/ModularMonolith.Modules.Users.csproj" />
+  </Folder>
+  <Folder Name="/src/SystemArchitectures/ModularMonolith/tests/" />
+  <Folder Name="/src/SystemArchitectures/ModularMonolith/tests/Architecture/">
+    <Project Path="ModularMonolith.Reference/tests/ModularMonolith.ArchitectureTests/ModularMonolith.ArchitectureTests.csproj" />
+  </Folder>
+  <Folder Name="/src/SystemArchitectures/ModularMonolith/tests/Integration/">
+    <Project Path="ModularMonolith.Reference/tests/ModularMonolith.IntegrationTests/ModularMonolith.IntegrationTests.csproj" />
+  </Folder>
+  <Folder Name="/src/SystemArchitectures/ServiceOrientedArchitecture/" />
+  <Folder Name="/src/SystemArchitectures/ServiceOrientedArchitecture/BuildingBlocks/">
+    <Project Path="src/ServiceOrientedArchitecture/BuildingBlocks/Soa.BuildingBlocks/Soa.BuildingBlocks.csproj" />
+  </Folder>
+  <Folder Name="/src/SystemArchitectures/ServiceOrientedArchitecture/Gateway/">
+    <Project Path="src/ServiceOrientedArchitecture/Gateway/Soa.ApiGateway/Soa.ApiGateway.csproj" />
+  </Folder>
+  <Folder Name="/src/SystemArchitectures/ServiceOrientedArchitecture/Services/" />
+  <Folder Name="/src/SystemArchitectures/ServiceOrientedArchitecture/Services/Orders/">
+    <Project Path="src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Api/Soa.Orders.Api.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Application/Soa.Orders.Application.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Contracts/Soa.Orders.Contracts.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Domain/Soa.Orders.Domain.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Infrastructure/Soa.Orders.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/SystemArchitectures/ServiceOrientedArchitecture/Services/Products/">
+    <Project Path="src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Api/Soa.Products.Api.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Application/Soa.Products.Application.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Contracts/Soa.Products.Contracts.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Domain/Soa.Products.Domain.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Infrastructure/Soa.Products.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/SystemArchitectures/ServiceOrientedArchitecture/Services/Users/">
+    <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Api/Soa.Users.Api.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Application/Soa.Users.Application.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Contracts/Soa.Users.Contracts.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Domain/Soa.Users.Domain.csproj" />
+    <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Infrastructure/Soa.Users.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/SystemArchitectures/ServiceOrientedArchitecture/tests/" />
 </Solution>
