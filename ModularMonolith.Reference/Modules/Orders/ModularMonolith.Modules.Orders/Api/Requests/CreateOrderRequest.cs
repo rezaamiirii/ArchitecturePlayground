@@ -1,1 +1,5 @@
-namespace ModularMonolith.Modules.Orders.Api.Requests; public sealed record CreateOrderRequest(Guid UserId,IReadOnlyCollection<CreateOrderItemRequest> Items); public sealed record CreateOrderItemRequest(Guid ProductId,int Quantity);
+namespace ModularMonolith.Modules.Orders.Api.Requests;
+
+public sealed record CreateOrderRequest(
+    Guid UserId,
+    IReadOnlyCollection<CreateOrderItemRequest> Items);

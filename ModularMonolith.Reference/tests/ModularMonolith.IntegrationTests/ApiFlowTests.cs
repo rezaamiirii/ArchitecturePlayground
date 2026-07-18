@@ -1,10 +1,158 @@
-using System.Net; using System.Net.Http.Json; using Microsoft.AspNetCore.Mvc.Testing; using Xunit;
+using System.Net;
+using System.Net.Http.Json;
+using Microsoft.AspNetCore.Mvc.Testing;
+using ModularMonolith.IntegrationTests.Models;
+using Xunit;
+
 namespace ModularMonolith.IntegrationTests;
+
 public sealed class ApiFlowTests : IClassFixture<WebApplicationFactory<Program>>
-{ private readonly HttpClient _client; public ApiFlowTests(WebApplicationFactory<Program> factory){ _client=factory.WithWebHostBuilder(_=>{}).CreateClient(); }
- [Fact] public async Task Creates_User_Product_And_Order_And_Reduces_Stock(){ var user=await CreateUser("Test","Buyer","buyer@example.com"); var product=await CreateProduct("Desk",100m,3); var orderResponse=await _client.PostAsJsonAsync("/api/orders",new{UserId=user.Id,Items=new[]{new{ProductId=product.Id,Quantity=2}}}); Assert.Equal(HttpStatusCode.Created,orderResponse.StatusCode); var updated=await _client.GetFromJsonAsync<ProductDto>($"/api/products/{product.Id}"); Assert.Equal(1,updated!.AvailableStock); }
- [Fact] public async Task Rejects_Inactive_User(){ var user=await CreateUser("No","Buy","nobuy@example.com"); await _client.PostAsync($"/api/users/{user.Id}/deactivate",null); var product=await CreateProduct("Chair",80m,4); var r=await _client.PostAsJsonAsync("/api/orders",new{UserId=user.Id,Items=new[]{new{ProductId=product.Id,Quantity=1}}}); Assert.Equal(HttpStatusCode.Conflict,r.StatusCode); }
- [Fact] public async Task Rejects_Inactive_Product_And_Insufficient_Stock(){ var user=await CreateUser("Stock","Tester","stock@example.com"); var inactive=await CreateProduct("Old",5m,9); await _client.PostAsync($"/api/products/{inactive.Id}/deactivate",null); var r1=await _client.PostAsJsonAsync("/api/orders",new{UserId=user.Id,Items=new[]{new{ProductId=inactive.Id,Quantity=1}}}); Assert.Equal(HttpStatusCode.Conflict,r1.StatusCode); var low=await CreateProduct("Limited",12m,1); var r2=await _client.PostAsJsonAsync("/api/orders",new{UserId=user.Id,Items=new[]{new{ProductId=low.Id,Quantity=2}}}); Assert.Equal(HttpStatusCode.Conflict,r2.StatusCode); }
- [Fact] public async Task Historical_Order_Prices_Do_Not_Change(){ var user=await CreateUser("Price","Tester","price@example.com"); var product=await CreateProduct("Lamp",20m,5); var created=await (await _client.PostAsJsonAsync("/api/orders",new{UserId=user.Id,Items=new[]{new{ProductId=product.Id,Quantity=1}}})).Content.ReadFromJsonAsync<CreateOrderDto>(); await _client.PutAsJsonAsync($"/api/products/{product.Id}/price",new{Price=99m}); var order=await _client.GetFromJsonAsync<OrderDto>($"/api/orders/{created!.OrderId}"); Assert.Equal(20m,order!.Items.Single().UnitPrice); }
- private async Task<UserDto> CreateUser(string f,string l,string e)=>(await (await _client.PostAsJsonAsync("/api/users",new{FirstName=f,LastName=l,Email=e})).Content.ReadFromJsonAsync<UserDto>())!; private async Task<ProductDto> CreateProduct(string n,decimal p,int s)=>(await (await _client.PostAsJsonAsync("/api/products",new{Name=n,Price=p,AvailableStock=s})).Content.ReadFromJsonAsync<ProductDto>())!;
- private sealed record UserDto(Guid Id,string FirstName,string LastName,string Email,bool IsActive,DateTime CreatedAtUtc); private sealed record ProductDto(Guid Id,string Name,decimal Price,int AvailableStock,bool IsActive,DateTime CreatedAtUtc); private sealed record CreateOrderDto(Guid OrderId); private sealed record OrderDto(Guid Id,Guid UserId,decimal Total,DateTime CreatedAtUtc,IReadOnlyCollection<OrderItemDto> Items); private sealed record OrderItemDto(Guid ProductId,string ProductName,decimal UnitPrice,int Quantity,decimal LineTotal); }
+{
+    private readonly HttpClient _client;
+
+    public ApiFlowTests(WebApplicationFactory<Program> factory)
+    {
+        _client = factory
+            .WithWebHostBuilder(_ => { })
+            .CreateClient();
+    }
+
+    [Fact]
+    public async Task Creates_User_Product_And_Order_And_Reduces_Stock()
+    {
+        var user = await CreateUserAsync("Test", "Buyer", "buyer@example.com");
+        var product = await CreateProductAsync("Desk", price: 100m, stock: 3);
+
+        var orderResponse = await _client.PostAsJsonAsync(
+            "/api/orders",
+            new
+            {
+                UserId = user.Id,
+                Items = new[]
+                {
+                    new { ProductId = product.Id, Quantity = 2 },
+                },
+            });
+
+        Assert.Equal(HttpStatusCode.Created, orderResponse.StatusCode);
+
+        var updatedProduct = await _client.GetFromJsonAsync<ProductDto>($"/api/products/{product.Id}");
+
+        Assert.Equal(1, updatedProduct!.AvailableStock);
+    }
+
+    [Fact]
+    public async Task Rejects_Inactive_User()
+    {
+        var user = await CreateUserAsync("No", "Buy", "nobuy@example.com");
+        await _client.PostAsync($"/api/users/{user.Id}/deactivate", content: null);
+
+        var product = await CreateProductAsync("Chair", price: 80m, stock: 4);
+
+        var response = await _client.PostAsJsonAsync(
+            "/api/orders",
+            new
+            {
+                UserId = user.Id,
+                Items = new[]
+                {
+                    new { ProductId = product.Id, Quantity = 1 },
+                },
+            });
+
+        Assert.Equal(HttpStatusCode.Conflict, response.StatusCode);
+    }
+
+    [Fact]
+    public async Task Rejects_Inactive_Product_And_Insufficient_Stock()
+    {
+        var user = await CreateUserAsync("Stock", "Tester", "stock@example.com");
+        var inactiveProduct = await CreateProductAsync("Old", price: 5m, stock: 9);
+
+        await _client.PostAsync($"/api/products/{inactiveProduct.Id}/deactivate", content: null);
+
+        var inactiveProductResponse = await _client.PostAsJsonAsync(
+            "/api/orders",
+            new
+            {
+                UserId = user.Id,
+                Items = new[]
+                {
+                    new { ProductId = inactiveProduct.Id, Quantity = 1 },
+                },
+            });
+
+        Assert.Equal(HttpStatusCode.Conflict, inactiveProductResponse.StatusCode);
+
+        var lowStockProduct = await CreateProductAsync("Limited", price: 12m, stock: 1);
+
+        var insufficientStockResponse = await _client.PostAsJsonAsync(
+            "/api/orders",
+            new
+            {
+                UserId = user.Id,
+                Items = new[]
+                {
+                    new { ProductId = lowStockProduct.Id, Quantity = 2 },
+                },
+            });
+
+        Assert.Equal(HttpStatusCode.Conflict, insufficientStockResponse.StatusCode);
+    }
+
+    [Fact]
+    public async Task Historical_Order_Prices_Do_Not_Change()
+    {
+        var user = await CreateUserAsync("Price", "Tester", "price@example.com");
+        var product = await CreateProductAsync("Lamp", price: 20m, stock: 5);
+
+        var createOrderResponse = await _client.PostAsJsonAsync(
+            "/api/orders",
+            new
+            {
+                UserId = user.Id,
+                Items = new[]
+                {
+                    new { ProductId = product.Id, Quantity = 1 },
+                },
+            });
+
+        var createdOrder = await createOrderResponse.Content.ReadFromJsonAsync<CreateOrderDto>();
+
+        await _client.PutAsJsonAsync(
+            $"/api/products/{product.Id}/price",
+            new { Price = 99m });
+
+        var order = await _client.GetFromJsonAsync<OrderDto>($"/api/orders/{createdOrder!.OrderId}");
+
+        Assert.Equal(20m, order!.Items.Single().UnitPrice);
+    }
+
+    private async Task<UserDto> CreateUserAsync(string firstName, string lastName, string email)
+    {
+        var response = await _client.PostAsJsonAsync(
+            "/api/users",
+            new
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email,
+            });
+
+        return (await response.Content.ReadFromJsonAsync<UserDto>())!;
+    }
+
+    private async Task<ProductDto> CreateProductAsync(string name, decimal price, int stock)
+    {
+        var response = await _client.PostAsJsonAsync(
+            "/api/products",
+            new
+            {
+                Name = name,
+                Price = price,
+                AvailableStock = stock,
+            });
+
+        return (await response.Content.ReadFromJsonAsync<ProductDto>())!;
+    }
+}

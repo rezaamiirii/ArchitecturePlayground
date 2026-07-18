@@ -1,3 +1,78 @@
 namespace ModularMonolith.Modules.Orders.Domain;
-internal sealed class Order { private readonly List<OrderItem> _items=[]; private Order(){} public Guid Id{get;private set;} public Guid UserId{get;private set;} public DateTime CreatedAtUtc{get;private set;} public decimal Total{get;private set;} public IReadOnlyCollection<OrderItem> Items=>_items; public static Order Create(Guid userId,IEnumerable<(Guid ProductId,string ProductName,decimal UnitPrice,int Quantity)> items){var list=items.ToList(); if(userId==Guid.Empty)throw new ArgumentException("User is required."); if(list.Count==0)throw new ArgumentException("Order must contain at least one item."); var o=new Order{Id=Guid.NewGuid(),UserId=userId,CreatedAtUtc=DateTime.UtcNow}; foreach(var i in list)o.AddItem(i.ProductId,i.ProductName,i.UnitPrice,i.Quantity); o.Total=o._items.Sum(x=>x.LineTotal); return o;} private void AddItem(Guid pid,string name,decimal price,int qty){ if(pid==Guid.Empty)throw new ArgumentException("Product is required."); if(string.IsNullOrWhiteSpace(name))throw new ArgumentException("Product name is required."); if(price<=0)throw new ArgumentException("Unit price must be positive."); if(qty<=0)throw new ArgumentException("Quantity must be positive."); _items.Add(OrderItem.Create(pid,name,price,qty));}}
-internal sealed class OrderItem { private OrderItem(){} public Guid Id{get;private set;} public Guid OrderId{get;private set;} public Guid ProductId{get;private set;} public string ProductName{get;private set;}=""; public decimal UnitPrice{get;private set;} public int Quantity{get;private set;} public decimal LineTotal{get;private set;} internal static OrderItem Create(Guid pid,string name,decimal price,int qty)=>new(){Id=Guid.NewGuid(),ProductId=pid,ProductName=name,UnitPrice=price,Quantity=qty,LineTotal=price*qty};}
+
+internal sealed class Order
+{
+    private readonly List<OrderItem> _items = [];
+
+    private Order()
+    {
+    }
+
+    public Guid Id { get; private set; }
+
+    public Guid UserId { get; private set; }
+
+    public DateTime CreatedAtUtc { get; private set; }
+
+    public decimal Total { get; private set; }
+
+    public IReadOnlyCollection<OrderItem> Items => _items;
+
+    public static Order Create(
+        Guid userId,
+        IEnumerable<(Guid ProductId, string ProductName, decimal UnitPrice, int Quantity)> items)
+    {
+        var orderItems = items.ToList();
+
+        if (userId == Guid.Empty)
+        {
+            throw new ArgumentException("User is required.");
+        }
+
+        if (orderItems.Count == 0)
+        {
+            throw new ArgumentException("Order must contain at least one item.");
+        }
+
+        var order = new Order
+        {
+            Id = Guid.NewGuid(),
+            UserId = userId,
+            CreatedAtUtc = DateTime.UtcNow,
+        };
+
+        foreach (var item in orderItems)
+        {
+            order.AddItem(item.ProductId, item.ProductName, item.UnitPrice, item.Quantity);
+        }
+
+        order.Total = order._items.Sum(item => item.LineTotal);
+
+        return order;
+    }
+
+    private void AddItem(Guid productId, string productName, decimal unitPrice, int quantity)
+    {
+        if (productId == Guid.Empty)
+        {
+            throw new ArgumentException("Product is required.");
+        }
+
+        if (string.IsNullOrWhiteSpace(productName))
+        {
+            throw new ArgumentException("Product name is required.");
+        }
+
+        if (unitPrice <= 0)
+        {
+            throw new ArgumentException("Unit price must be positive.");
+        }
+
+        if (quantity <= 0)
+        {
+            throw new ArgumentException("Quantity must be positive.");
+        }
+
+        _items.Add(OrderItem.Create(productId, productName, unitPrice, quantity));
+    }
+}

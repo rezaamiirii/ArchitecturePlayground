@@ -1,1 +1,0 @@
-namespace ModularMonolith.Modules.Products.Api.Requests; public sealed record CreateProductRequest(string Name,decimal Price,int AvailableStock); public sealed record AddStockRequest(int Quantity); public sealed record ChangePriceRequest(decimal Price);

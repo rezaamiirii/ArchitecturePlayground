@@ -1,4 +1,26 @@
-using Microsoft.EntityFrameworkCore; using ModularMonolith.Modules.Users.Domain;
+using Microsoft.EntityFrameworkCore;
+using ModularMonolith.Modules.Users.Domain;
+
 namespace ModularMonolith.Modules.Users.Infrastructure;
-internal sealed class UsersDbContext(DbContextOptions<UsersDbContext> options) : DbContext(options)
-{ internal DbSet<User> Users => Set<User>(); protected override void OnModelCreating(ModelBuilder b){ var e=b.Entity<User>(); e.ToTable("Users"); e.HasKey(x=>x.Id); e.Property(x=>x.FirstName).HasMaxLength(100); e.Property(x=>x.LastName).HasMaxLength(100); e.Property(x=>x.Email).HasMaxLength(320); e.HasIndex(x=>x.Email).IsUnique(); } }
+
+public sealed class UsersDbContext : DbContext
+{
+    public UsersDbContext(DbContextOptions<UsersDbContext> options)
+        : base(options)
+    {
+    }
+
+    internal DbSet<User> Users => Set<User>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        var user = modelBuilder.Entity<User>();
+
+        user.ToTable("Users");
+        user.HasKey(entity => entity.Id);
+        user.Property(entity => entity.FirstName).HasMaxLength(100);
+        user.Property(entity => entity.LastName).HasMaxLength(100);
+        user.Property(entity => entity.Email).HasMaxLength(320);
+        user.HasIndex(entity => entity.Email).IsUnique();
+    }
+}

@@ -1,2 +1,24 @@
-using Microsoft.EntityFrameworkCore; using ModularMonolith.Modules.Products.Domain; namespace ModularMonolith.Modules.Products.Infrastructure;
-internal sealed class ProductsDbContext(DbContextOptions<ProductsDbContext> options):DbContext(options){ internal DbSet<Product> Products=>Set<Product>(); protected override void OnModelCreating(ModelBuilder b){var e=b.Entity<Product>(); e.ToTable("Products"); e.HasKey(x=>x.Id); e.Property(x=>x.Name).HasMaxLength(200); e.Property(x=>x.Price).HasPrecision(18,2);} }
+using Microsoft.EntityFrameworkCore;
+using ModularMonolith.Modules.Products.Domain;
+
+namespace ModularMonolith.Modules.Products.Infrastructure;
+
+public sealed class ProductsDbContext : DbContext
+{
+    public ProductsDbContext(DbContextOptions<ProductsDbContext> options)
+        : base(options)
+    {
+    }
+
+    internal DbSet<Product> Products => Set<Product>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        var product = modelBuilder.Entity<Product>();
+
+        product.ToTable("Products");
+        product.HasKey(entity => entity.Id);
+        product.Property(entity => entity.Name).HasMaxLength(200);
+        product.Property(entity => entity.Price).HasPrecision(18, 2);
+    }
+}

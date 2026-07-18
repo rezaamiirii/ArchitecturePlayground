@@ -1,1 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net10.0</TargetFramework><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings></PropertyGroup><ItemGroup><FrameworkReference Include="Microsoft.AspNetCore.App" /><PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.0" /></ItemGroup><ItemGroup><ProjectReference Include="../../../BuildingBlocks/ModularMonolith.BuildingBlocks/ModularMonolith.BuildingBlocks.csproj" /><ProjectReference Include="../../Users/ModularMonolith.Modules.Users.Contracts/ModularMonolith.Modules.Users.Contracts.csproj" /><ProjectReference Include="../../Products/ModularMonolith.Modules.Products.Contracts/ModularMonolith.Modules.Products.Contracts.csproj" /></ItemGroup></Project>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../../BuildingBlocks/ModularMonolith.BuildingBlocks/ModularMonolith.BuildingBlocks.csproj" />
+    <ProjectReference Include="../../Users/ModularMonolith.Modules.Users.Contracts/ModularMonolith.Modules.Users.Contracts.csproj" />
+    <ProjectReference Include="../../Products/ModularMonolith.Modules.Products.Contracts/ModularMonolith.Modules.Products.Contracts.csproj" />
+  </ItemGroup>
+</Project>

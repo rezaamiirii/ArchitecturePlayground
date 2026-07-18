@@ -1,2 +1,49 @@
-using Microsoft.EntityFrameworkCore; using Microsoft.Extensions.Configuration; using Microsoft.Extensions.DependencyInjection; using ModularMonolith.Modules.Products.Application; using ModularMonolith.Modules.Products.Contracts; using ModularMonolith.Modules.Products.Infrastructure; namespace ModularMonolith.Modules.Products;
-public static class ProductsModule{ public static IMvcBuilder AddProductsModule(this IMvcBuilder mvc,IConfiguration cfg){mvc.Services.AddDbContext<ProductsDbContext>(o=>o.UseSqlite(cfg.GetConnectionString("Products")??"Data Source=modular-monolith.db")); mvc.Services.AddScoped<ProductsService>(); mvc.Services.AddScoped<IProductsModule>(sp=>sp.GetRequiredService<ProductsService>()); mvc.AddApplicationPart(typeof(ProductsModule).Assembly); return mvc;} public static async Task SeedProductsAsync(this IServiceProvider sp){using var s=sp.CreateScope(); var db=s.ServiceProvider.GetRequiredService<ProductsDbContext>(); await db.Database.EnsureCreatedAsync(); if(await db.Products.AnyAsync())return; var a=Domain.Product.Create("Keyboard",99,10); var b=Domain.Product.Create("Mouse",49,20); var c=Domain.Product.Create("Monitor",299,5); var d=Domain.Product.Create("Retired Cable",9,100); d.Deactivate(); db.Products.AddRange(a,b,c,d); await db.SaveChangesAsync();}}
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using ModularMonolith.Modules.Products.Application;
+using ModularMonolith.Modules.Products.Contracts;
+using ModularMonolith.Modules.Products.Infrastructure;
+
+namespace ModularMonolith.Modules.Products;
+
+public static class ProductsModule
+{
+    public static IMvcBuilder AddProductsModule(
+        this IMvcBuilder mvcBuilder,
+        IConfiguration configuration)
+    {
+        mvcBuilder.Services.AddDbContext<ProductsDbContext>(options =>
+            options.UseSqlite(configuration.GetConnectionString("Products") ?? "Data Source=modular-monolith.db"));
+
+        mvcBuilder.Services.AddScoped<ProductsService>();
+        mvcBuilder.Services.AddScoped<IProductsModule>(serviceProvider =>
+            serviceProvider.GetRequiredService<ProductsService>());
+
+        mvcBuilder.AddApplicationPart(typeof(ProductsModule).Assembly);
+
+        return mvcBuilder;
+    }
+
+    public static async Task SeedProductsAsync(this IServiceProvider serviceProvider)
+    {
+        using var scope = serviceProvider.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<ProductsDbContext>();
+
+        await dbContext.Database.EnsureCreatedAsync();
+
+        if (await dbContext.Products.AnyAsync())
+        {
+            return;
+        }
+
+        var keyboard = Domain.Product.Create("Keyboard", 99, 10);
+        var mouse = Domain.Product.Create("Mouse", 49, 20);
+        var monitor = Domain.Product.Create("Monitor", 299, 5);
+        var inactiveCable = Domain.Product.Create("Retired Cable", 9, 100);
+        inactiveCable.Deactivate();
+
+        dbContext.Products.AddRange(keyboard, mouse, monitor, inactiveCable);
+        await dbContext.SaveChangesAsync();
+    }
+}
