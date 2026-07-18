@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Soa.ApiGateway": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:6085;http://localhost:6086"
+    }
+  }
+}
