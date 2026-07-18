@@ -2,6 +2,14 @@
   <Folder Name="/src/" />
   <Folder Name="/src/CleanArchitecture/" />
   <Folder Name="/src/ModularMonolith/">
-    <Project Path="ModularMonolith.Reference/ModularMonolith.Reference.csproj" />
+    <Project Path="ModularMonolith.Reference/ModularMonolith.Reference.Api/ModularMonolith.Reference.Api.csproj" />
+    <Project Path="ModularMonolith.Reference/BuildingBlocks/ModularMonolith.BuildingBlocks/ModularMonolith.BuildingBlocks.csproj" />
+    <Project Path="ModularMonolith.Reference/Modules/Users/ModularMonolith.Modules.Users.Contracts/ModularMonolith.Modules.Users.Contracts.csproj" />
+    <Project Path="ModularMonolith.Reference/Modules/Users/ModularMonolith.Modules.Users/ModularMonolith.Modules.Users.csproj" />
+    <Project Path="ModularMonolith.Reference/Modules/Products/ModularMonolith.Modules.Products.Contracts/ModularMonolith.Modules.Products.Contracts.csproj" />
+    <Project Path="ModularMonolith.Reference/Modules/Products/ModularMonolith.Modules.Products/ModularMonolith.Modules.Products.csproj" />
+    <Project Path="ModularMonolith.Reference/Modules/Orders/ModularMonolith.Modules.Orders/ModularMonolith.Modules.Orders.csproj" />
+    <Project Path="ModularMonolith.Reference/tests/ModularMonolith.ArchitectureTests/ModularMonolith.ArchitectureTests.csproj" />
+    <Project Path="ModularMonolith.Reference/tests/ModularMonolith.IntegrationTests/ModularMonolith.IntegrationTests.csproj" />
   </Folder>
 </Solution>
