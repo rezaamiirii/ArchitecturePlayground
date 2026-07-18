@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Microservices.Pricing.Application/Microservices.Pricing.Application.csproj" />
+    <ProjectReference Include="../Microservices.Pricing.Domain/Microservices.Pricing.Domain.csproj" />
+  </ItemGroup>
+</Project>

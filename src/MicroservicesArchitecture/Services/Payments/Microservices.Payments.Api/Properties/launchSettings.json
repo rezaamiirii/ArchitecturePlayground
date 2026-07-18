@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Microservices.Payments.Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:31220;http://localhost:31221"
+    }
+  }
+}
