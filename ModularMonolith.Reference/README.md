@@ -38,9 +38,48 @@ Domain entities are not shared. Users exposes `IUsersModule` and `UserOrderInfo`
 
 SQLite is used. Each module has its own EF Core `DbContext`: `UsersDbContext`, `ProductsDbContext`, and `OrdersDbContext`. SQLite does not provide SQL Server-style schemas, so clear table names (`Users`, `Products`, `Orders`, `OrderItems`) are used. Each module owns its own EF configuration and design-time migrations can be added per module.
 
-## Clean Architecture inside modules
+## Architecture levels inside the modular monolith
 
-Each module is split into `Api`, `Application`, `Contracts`, `Domain`, and `Infrastructure`. Controllers delegate to application services. Application services orchestrate use cases. Domain classes protect invariants through factory methods and behavior. Infrastructure contains EF Core persistence.
+The system architecture is a Modular Monolith: one ASP.NET Core host, one process, and one deployment unit composed from module class libraries.
+
+The Users module internally uses Vertical Slice Architecture for its application layer. That decision is scoped to the Users module only; Products and Orders may keep their existing internal application structure.
+
+```text
+System architecture: Modular Monolith
+Users module application architecture: Vertical Slice
+```
+
+The Users module keeps the same module boundaries and Clean Architecture-style project areas:
+
+```text
+Modules/Users/
+├── ModularMonolith.Modules.Users
+│   ├── Api
+│   ├── Application
+│   │   └── Features
+│   │       ├── ActivateUser
+│   │       ├── CreateUser
+│   │       ├── DeactivateUser
+│   │       ├── GetUserById
+│   │       └── GetUserForOrder
+│   ├── Domain
+│   └── Infrastructure
+└── ModularMonolith.Modules.Users.Contracts
+```
+
+Each Users feature owns the command or query and handler for one use case. Controllers remain thin and delegate to the corresponding feature handler. Domain classes protect invariants through factory methods and behavior. Infrastructure contains EF Core persistence.
+
+A user creation request flows through the module like this:
+
+```text
+POST /api/users
+    -> UsersController.Create
+    -> Application/Features/CreateUser handler
+    -> User domain model
+    -> UsersDbContext persistence
+```
+
+Users exposes cross-module functionality only through `ModularMonolith.Modules.Users.Contracts`; internal feature request types remain inside the Users module.
 
 ## Endpoints
 

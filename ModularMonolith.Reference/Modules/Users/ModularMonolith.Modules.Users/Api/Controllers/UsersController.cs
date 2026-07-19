@@ -9,11 +9,21 @@ namespace ModularMonolith.Modules.Users.Api.Controllers;
 [Route("api/users")]
 public sealed class UsersController : ControllerBase
 {
-    private readonly UsersService _usersService;
+    private readonly Application.Features.CreateUser.Handler _createUserHandler;
+    private readonly Application.Features.GetUserById.Handler _getUserByIdHandler;
+    private readonly Application.Features.ActivateUser.Handler _activateUserHandler;
+    private readonly Application.Features.DeactivateUser.Handler _deactivateUserHandler;
 
-    public UsersController(UsersService usersService)
+    public UsersController(
+        Application.Features.CreateUser.Handler createUserHandler,
+        Application.Features.GetUserById.Handler getUserByIdHandler,
+        Application.Features.ActivateUser.Handler activateUserHandler,
+        Application.Features.DeactivateUser.Handler deactivateUserHandler)
     {
-        _usersService = usersService;
+        _createUserHandler = createUserHandler;
+        _getUserByIdHandler = getUserByIdHandler;
+        _activateUserHandler = activateUserHandler;
+        _deactivateUserHandler = deactivateUserHandler;
     }
 
     [HttpPost]
@@ -21,10 +31,11 @@ public sealed class UsersController : ControllerBase
         CreateUserRequest request,
         CancellationToken cancellationToken)
     {
-        var result = await _usersService.CreateAsync(
-            request.FirstName,
-            request.LastName,
-            request.Email,
+        var result = await _createUserHandler.HandleAsync(
+            new Application.Features.CreateUser.Command(
+                request.FirstName,
+                request.LastName,
+                request.Email),
             cancellationToken);
 
         return this.ToActionResult(result);
@@ -33,7 +44,9 @@ public sealed class UsersController : ControllerBase
     [HttpGet("{id:guid}")]
     public async Task<ActionResult<UserResponse>> Get(Guid id, CancellationToken cancellationToken)
     {
-        var result = await _usersService.GetAsync(id, cancellationToken);
+        var result = await _getUserByIdHandler.HandleAsync(
+            new Application.Features.GetUserById.Query(id),
+            cancellationToken);
 
         return this.ToActionResult(result);
     }
@@ -41,7 +54,9 @@ public sealed class UsersController : ControllerBase
     [HttpPost("{id:guid}/activate")]
     public async Task<ActionResult<UserResponse>> Activate(Guid id, CancellationToken cancellationToken)
     {
-        var result = await _usersService.SetActiveAsync(id, active: true, cancellationToken);
+        var result = await _activateUserHandler.HandleAsync(
+            new Application.Features.ActivateUser.Command(id),
+            cancellationToken);
 
         return this.ToActionResult(result);
     }
@@ -49,7 +64,9 @@ public sealed class UsersController : ControllerBase
     [HttpPost("{id:guid}/deactivate")]
     public async Task<ActionResult<UserResponse>> Deactivate(Guid id, CancellationToken cancellationToken)
     {
-        var result = await _usersService.SetActiveAsync(id, active: false, cancellationToken);
+        var result = await _deactivateUserHandler.HandleAsync(
+            new Application.Features.DeactivateUser.Command(id),
+            cancellationToken);
 
         return this.ToActionResult(result);
     }
