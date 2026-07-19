@@ -61,6 +61,41 @@ public sealed class ArchitectureRulesTests
         Assert.DoesNotContain("Repository", program);
     }
 
+
+    [Fact]
+    public void Other_Modules_Reference_Only_Users_Contracts()
+    {
+        AssertSource("Modules/Orders", ["Modules.Users.Domain", "Modules.Users.Infrastructure", "Modules.Users.Api", "Modules.Users.Application", "UsersDbContext"]);
+        AssertSource("Modules/Products", ["Modules.Users.Domain", "Modules.Users.Infrastructure", "Modules.Users.Api", "Modules.Users.Application", "UsersDbContext"]);
+    }
+
+    [Fact]
+    public void Users_Module_Remains_A_Class_Library()
+    {
+        var usersProjectPath = Path.Combine(
+            PathToReferenceRoot(),
+            "Modules/Users/ModularMonolith.Modules.Users/ModularMonolith.Modules.Users.csproj");
+        var usersProject = File.ReadAllText(usersProjectPath);
+
+        Assert.DoesNotContain("Microsoft.NET.Sdk.Web", usersProject);
+        Assert.DoesNotContain("<OutputType>Exe</OutputType>", usersProject);
+    }
+
+    [Fact]
+    public void Users_Application_Is_Organized_By_Feature_Slices()
+    {
+        var usersApplicationPath = Path.Combine(
+            PathToReferenceRoot(),
+            "Modules/Users/ModularMonolith.Modules.Users/Application");
+
+        Assert.True(Directory.Exists(Path.Combine(usersApplicationPath, "Features/CreateUser")));
+        Assert.True(Directory.Exists(Path.Combine(usersApplicationPath, "Features/GetUserById")));
+        Assert.True(Directory.Exists(Path.Combine(usersApplicationPath, "Features/ActivateUser")));
+        Assert.True(Directory.Exists(Path.Combine(usersApplicationPath, "Features/DeactivateUser")));
+        Assert.True(Directory.Exists(Path.Combine(usersApplicationPath, "Features/GetUserForOrder")));
+        Assert.False(File.Exists(Path.Combine(usersApplicationPath, "UsersService.cs")));
+    }
+
     private static void AssertSource(string relativePath, string[] forbiddenTerms)
     {
         var files = Directory.GetFiles(

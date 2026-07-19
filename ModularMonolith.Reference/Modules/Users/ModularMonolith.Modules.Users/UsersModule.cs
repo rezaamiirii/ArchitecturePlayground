@@ -16,9 +16,12 @@ public static class UsersModule
         mvcBuilder.Services.AddDbContext<UsersDbContext>(options =>
             options.UseSqlite(configuration.GetConnectionString("Users") ?? "Data Source=modular-monolith.db"));
 
-        mvcBuilder.Services.AddScoped<UsersService>();
-        mvcBuilder.Services.AddScoped<IUsersModule>(serviceProvider =>
-            serviceProvider.GetRequiredService<UsersService>());
+        mvcBuilder.Services.AddScoped<Application.Features.CreateUser.Handler>();
+        mvcBuilder.Services.AddScoped<Application.Features.GetUserById.Handler>();
+        mvcBuilder.Services.AddScoped<Application.Features.ActivateUser.Handler>();
+        mvcBuilder.Services.AddScoped<Application.Features.DeactivateUser.Handler>();
+        mvcBuilder.Services.AddScoped<Application.Features.GetUserForOrder.Handler>();
+        mvcBuilder.Services.AddScoped<IUsersModule, UsersModuleFacade>();
 
         mvcBuilder.AddApplicationPart(typeof(UsersModule).Assembly);
 
