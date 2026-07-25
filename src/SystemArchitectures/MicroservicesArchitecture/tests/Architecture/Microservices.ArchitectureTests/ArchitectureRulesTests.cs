@@ -132,12 +132,12 @@ public sealed class ArchitectureRulesTests
         var directory = new DirectoryInfo(AppContext.BaseDirectory);
         while (directory is not null)
         {
-            var candidate = Path.Combine(directory.FullName, "src", "MicroservicesArchitecture");
+            var candidate = Path.Combine(directory.FullName, "src", "SystemArchitectures", "MicroservicesArchitecture");
             if (Directory.Exists(candidate)) return Normalize(candidate);
             directory = directory.Parent;
         }
 
-        throw new DirectoryNotFoundException("Could not locate src/MicroservicesArchitecture.");
+        throw new DirectoryNotFoundException("Could not locate src/SystemArchitectures/MicroservicesArchitecture.");
     }
 
     private static string Normalize(string path) => Path.GetFullPath(path).Replace('\\', '/');

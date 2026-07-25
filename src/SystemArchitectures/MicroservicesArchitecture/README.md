@@ -1,6 +1,6 @@
 # MicroservicesArchitecture
 
-Physical root: `src/MicroservicesArchitecture`. This sample is an architecture skeleton only; it contains no business implementation, domain entities, databases, HTTP clients, event producers, or event consumers.
+Physical root: `src/SystemArchitectures/MicroservicesArchitecture`. This sample is an architecture skeleton only; it contains no business implementation, domain entities, databases, HTTP clients, event producers, or event consumers.
 
 ## SOA to Microservices decomposition
 
@@ -60,13 +60,13 @@ Client
 ## Run commands
 
 ```bash
-dotnet run --project src/MicroservicesArchitecture/Gateway/Microservices.ApiGateway/Microservices.ApiGateway.csproj
-dotnet run --project src/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Api/Microservices.Identity.Api.csproj
-dotnet run --project src/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Api/Microservices.Customers.Api.csproj
-dotnet run --project src/MicroservicesArchitecture/Services/Catalog/Microservices.Catalog.Api/Microservices.Catalog.Api.csproj
-dotnet run --project src/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Api/Microservices.Pricing.Api.csproj
-dotnet run --project src/MicroservicesArchitecture/Services/Inventory/Microservices.Inventory.Api/Microservices.Inventory.Api.csproj
-dotnet run --project src/MicroservicesArchitecture/Services/Ordering/Microservices.Ordering.Api/Microservices.Ordering.Api.csproj
-dotnet run --project src/MicroservicesArchitecture/Services/Payments/Microservices.Payments.Api/Microservices.Payments.Api.csproj
-dotnet run --project src/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Worker/Microservices.Notifications.Worker.csproj
+dotnet run --project src/SystemArchitectures/MicroservicesArchitecture/Gateway/Microservices.ApiGateway/Microservices.ApiGateway.csproj
+dotnet run --project src/SystemArchitectures/MicroservicesArchitecture/Services/Identity/Microservices.Identity.Api/Microservices.Identity.Api.csproj
+dotnet run --project src/SystemArchitectures/MicroservicesArchitecture/Services/Customers/Microservices.Customers.Api/Microservices.Customers.Api.csproj
+dotnet run --project src/SystemArchitectures/MicroservicesArchitecture/Services/Catalog/Microservices.Catalog.Api/Microservices.Catalog.Api.csproj
+dotnet run --project src/SystemArchitectures/MicroservicesArchitecture/Services/Pricing/Microservices.Pricing.Api/Microservices.Pricing.Api.csproj
+dotnet run --project src/SystemArchitectures/MicroservicesArchitecture/Services/Inventory/Microservices.Inventory.Api/Microservices.Inventory.Api.csproj
+dotnet run --project src/SystemArchitectures/MicroservicesArchitecture/Services/Ordering/Microservices.Ordering.Api/Microservices.Ordering.Api.csproj
+dotnet run --project src/SystemArchitectures/MicroservicesArchitecture/Services/Payments/Microservices.Payments.Api/Microservices.Payments.Api.csproj
+dotnet run --project src/SystemArchitectures/MicroservicesArchitecture/Services/Notifications/Microservices.Notifications.Worker/Microservices.Notifications.Worker.csproj
 ```
