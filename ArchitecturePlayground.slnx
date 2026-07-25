@@ -145,4 +145,11 @@
     <Project Path="src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Infrastructure/Soa.Users.Infrastructure.csproj" />
   </Folder>
   <Folder Name="/src/SystemArchitectures/ServiceOrientedArchitecture/tests/" />
+  <Folder Name="/src/SystemArchitectures/DistributedModularMonolith/">
+    <Project Path="src/SystemArchitectures/DistributedModularMonolith/Gateway/DistributedMonolith.Gateway.csproj" />
+    <Project Path="src/SystemArchitectures/DistributedModularMonolith/SharedContracts/DistributedMonolith.SharedContracts.csproj" />
+    <Project Path="src/SystemArchitectures/DistributedModularMonolith/Services/Users/DistributedMonolith.Users.csproj" />
+    <Project Path="src/SystemArchitectures/DistributedModularMonolith/Services/Products/DistributedMonolith.Products.csproj" />
+    <Project Path="src/SystemArchitectures/DistributedModularMonolith/Services/Orders/DistributedMonolith.Orders.csproj" />
+  </Folder>
 </Solution>
