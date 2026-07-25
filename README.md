@@ -491,5 +491,3 @@ Production systems require additional considerations such as:
 * Deployment automation
 * Disaster recovery
 * Compliance
-
-اشد.
