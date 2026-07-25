@@ -108,7 +108,7 @@ Orders:
 ## Run
 
 ```bash
-dotnet run --project ModularMonolith.Reference/ModularMonolith.Reference.Api/ModularMonolith.Reference.Api.csproj
+dotnet run --project src/SystemArchitectures/ModularMonolith/ModularMonolith.Reference.Api/ModularMonolith.Reference.Api.csproj
 ```
 
 Open Swagger at `/swagger`. Development startup idempotently creates the SQLite database and seeds two active users, one inactive user, three active products, and one inactive product.
@@ -118,7 +118,7 @@ Open Swagger at `/swagger`. Development startup idempotently creates the SQLite 
 Add migrations per module with the module project as the target and the API as the startup project, for example:
 
 ```bash
-dotnet ef migrations add InitialUsers --project ModularMonolith.Reference/Modules/Users/ModularMonolith.Modules.Users --startup-project ModularMonolith.Reference/ModularMonolith.Reference.Api --context UsersDbContext
+dotnet ef migrations add InitialUsers --project src/SystemArchitectures/ModularMonolith/Modules/Users/ModularMonolith.Modules.Users --startup-project src/SystemArchitectures/ModularMonolith/ModularMonolith.Reference.Api --context UsersDbContext
 ```
 
 Repeat for `ProductsDbContext` and `OrdersDbContext`.

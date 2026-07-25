@@ -72,17 +72,17 @@ src/
 ## Run commands
 
 ```bash
-dotnet run --project src/ServiceOrientedArchitecture/Gateway/Soa.ApiGateway/Soa.ApiGateway.csproj
+dotnet run --project src/SystemArchitectures/ServiceOrientedArchitecture/Gateway/Soa.ApiGateway/Soa.ApiGateway.csproj
 ```
 
 ```bash
-dotnet run --project src/ServiceOrientedArchitecture/Services/Users/Soa.Users.Api/Soa.Users.Api.csproj
+dotnet run --project src/SystemArchitectures/ServiceOrientedArchitecture/Services/Users/Soa.Users.Api/Soa.Users.Api.csproj
 ```
 
 ```bash
-dotnet run --project src/ServiceOrientedArchitecture/Services/Products/Soa.Products.Api/Soa.Products.Api.csproj
+dotnet run --project src/SystemArchitectures/ServiceOrientedArchitecture/Services/Products/Soa.Products.Api/Soa.Products.Api.csproj
 ```
 
 ```bash
-dotnet run --project src/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Api/Soa.Orders.Api.csproj
+dotnet run --project src/SystemArchitectures/ServiceOrientedArchitecture/Services/Orders/Soa.Orders.Api/Soa.Orders.Api.csproj
 ```
