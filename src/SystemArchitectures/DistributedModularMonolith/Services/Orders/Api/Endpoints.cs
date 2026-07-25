@@ -1,0 +1,3 @@
+using DistributedMonolith.Orders.Application;using DistributedMonolith.SharedContracts;
+namespace DistributedMonolith.Orders.Api;
+public static class Endpoints{public static void MapOrderEndpoints(this WebApplication app){var api=app.MapGroup("/api/orders").WithTags("Orders");api.MapPost("/",async(CreateOrderRequest r,OrderService s,CancellationToken ct)=>{var result=await s.Create(r,ct);return result.Order is{} o?Results.Created($"/api/orders/{o.Id}",o):Results.BadRequest(new{error=result.Error});});api.MapGet("/{id:guid}",async(Guid id,OrderService s)=>await s.Get(id)is{} o?Results.Ok(o):Results.NotFound());api.MapPost("/{id:guid}/cancel",async(Guid id,OrderService s)=>await s.Cancel(id)is{} o?Results.Ok(o):Results.NotFound());}}

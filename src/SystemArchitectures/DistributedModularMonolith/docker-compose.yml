@@ -1,0 +1,21 @@
+name: distributed-modular-monolith
+services:
+  gateway:
+    build: { context: ., dockerfile: Gateway/Dockerfile }
+    environment: [ASPNETCORE_URLS=http://+:8080, Services__Users=http://users:8080/, Services__Products=http://products:8080/, Services__Orders=http://orders:8080/]
+    ports: ["5100:8080"]
+    depends_on: [users, products, orders]
+  users:
+    build: { context: ., dockerfile: Services/Users/Dockerfile }
+    environment: [ASPNETCORE_URLS=http://+:8080, ConnectionStrings__Database=Data Source=/data/Users.db]
+    volumes: [users-data:/data]
+  products:
+    build: { context: ., dockerfile: Services/Products/Dockerfile }
+    environment: [ASPNETCORE_URLS=http://+:8080, ConnectionStrings__Database=Data Source=/data/Products.db]
+    volumes: [products-data:/data]
+  orders:
+    build: { context: ., dockerfile: Services/Orders/Dockerfile }
+    environment: [ASPNETCORE_URLS=http://+:8080, ConnectionStrings__Database=Data Source=/data/Orders.db, Services__Users=http://users:8080, Services__Products=http://products:8080]
+    volumes: [orders-data:/data]
+    depends_on: [users, products]
+volumes: { users-data: {}, products-data: {}, orders-data: {} }
